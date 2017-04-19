@@ -1,6 +1,6 @@
 /**
- * jQuery plugin to detect transitionEnd event
- * https://github.com/pjetrucha/transitionEnd
+ * The most accuracy jQuery plugin to detect transitionEnd event
+ * https://github.com/pjetrucha/whenTransitionEnd
  *
  * @author Piotr Chrobak
  * @license MIT
@@ -30,6 +30,7 @@
 
 	var defaults = {
 			timeout: true,
+			timeoutDelay: 100,
 			endOnFirst: false,
 		},
 		transitionEnd = (function(){
@@ -78,12 +79,13 @@
 
 				var property = map(styles.getPropertyValue(pre + 'transition-property').split(','), strTrim),
 					delay = map(styles.getPropertyValue(pre + 'transition-delay').split(','), toFloat),
-					time, prop;
+					sum = -1, time, prop;
 
 				/* find property name which ends last */
 				for(var i = 0, l = duration.length; i < l; i++){
-					if(time < (time = duration[i] + delay[i]) || !prop){
+					if(sum < (sum = duration[i] + delay[i])){
 						prop = property[i];
+						time = sum;
 					}
 				}
 
@@ -99,7 +101,7 @@
 
 	/**
 	 * Wrapper to transitionend listener with setTimeout fallback
-	 * @param {HTMLElement} el
+	 * @param {jQuery} el
 	 * @param {Function} callback
 	 * @param {Object} opts - options which extend `defaults`
 	 */
@@ -130,7 +132,7 @@
 		else if(opts.timeout){
 			timer = setTimeout(function(){
 				elem.triggerHandler(ev, 'timeout');
-			}, ifPositiveInteger(opts.timeout) || (detected.time * 1000) + 100);
+			}, ifPositiveInteger(opts.timeout) || (detected.time * 1000 (ifPositiveInteger(opts.timeoutDelay) || 0)));
 		}
 	}
 
@@ -139,11 +141,11 @@
 	 * @param {Function} callback
 	 * @param {Object} opts - options which extend `defaults`
 	 */
-	$.fn.transitionEnd = function(callback, opts){
+	$.fn.whenTransitionEnd = function(callback, opts){
 		var t = this;
-		/* trigger layout + setTimeout to ensure function calls after jQuery queue */
+		/* trigger layout + setTimeout to ensure function will call after jQuery queue */
 		return t[0] && t[0].offsetHeight + setTimeout(function(){
-			eventListener.call(null, t, callback, opts);
+			eventListener(t, callback, opts);
 		}) && t || t;
 	}
 
