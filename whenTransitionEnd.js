@@ -1,5 +1,5 @@
 /**
- * The most accuracy jQuery plugin to detect transitionEnd event
+ * Probably the most accuracy jQuery plugin to detect transitionEnd event
  * https://github.com/pjetrucha/whenTransitionEnd
  *
  * @author Piotr Chrobak
