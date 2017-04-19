@@ -14,10 +14,10 @@ Then, it analazy it and set listener to call callback function when `transitionE
 
 - `func` - A function to be executed after the timer expires.
 - `options` [*Optional*] - An object with additional parameters.
- - `timeout` [*default: true*] - Determine if setTimeout fallback should be set.
+   - `timeout` [*default: true*] - Determine if setTimeout fallback should be set.
  When value is Integer plugin sets setTimeouts' timer on this value.
- - `timeoutDelay` [*default: 100*] - Additional time to wait before setTimeout fallback (in milliseconds).
- - `endOnFirst` [*default: false*] - If *true* plugin will call callback function when first transition occure.
+   - `timeoutDelay` [*default: 100*] - Additional time to wait before setTimeout fallback (in milliseconds).
+   - `endOnFirst` [*default: false*] - If *true* plugin will call callback function when first transition occure.
 
 ### Return value
 
