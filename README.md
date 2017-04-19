@@ -12,7 +12,7 @@ Then, it analazy it and set listener to call callback function when `transitionE
 
 ### Parameters
 
-- `func` - A function to be executed after the timer expires.
+- `func` - A function to be executed when transition ends
 - `options` [*Optional*] - An object with additional parameters.
    - `timeout` [*default: true*] - Determine if setTimeout fallback should be set.
  When value is Integer plugin sets setTimeouts' timer on this value.
