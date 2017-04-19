@@ -1,6 +1,6 @@
 # whenTransitionEnd
 
-The most accuracy jQuery plugin to detect `transitionEnd` event.
+Probably the most accuracy jQuery plugin to detect `transitionEnd` event.
 Plugin takes first jQuery object from collection and check if there's some information about transition.
 Then, it analazy it and set listener to call callback function when `transitionEnd` event occure. There's also setTimeout fallback to ensure callback will trigger for sure.
 
@@ -12,7 +12,7 @@ Then, it analazy it and set listener to call callback function when `transitionE
 
 ### Parameters
 
-- `func` - A function to be executed when transition ends
+- `func` - A function to be executed when transition ends.
 - `options` [*Optional*] - An object with additional parameters.
    - `timeout` [*default: true*] - Determine if setTimeout fallback should be set.
  When value is Integer plugin sets setTimeouts' timer on this value.
