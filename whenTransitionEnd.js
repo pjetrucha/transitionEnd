@@ -132,7 +132,7 @@
 		else if(opts.timeout){
 			timer = setTimeout(function(){
 				elem.triggerHandler(ev, 'timeout');
-			}, ifPositiveInteger(opts.timeout) || (detected.time * 1000 (ifPositiveInteger(opts.timeoutDelay) || 0)));
+			}, ifPositiveInteger(opts.timeout) || (detected.time * 1000 + (ifPositiveInteger(opts.timeoutDelay) || 0)));
 		}
 	}
 
