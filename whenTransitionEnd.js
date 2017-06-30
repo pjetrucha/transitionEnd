@@ -32,6 +32,7 @@
 			timeout: true,
 			timeoutDelay: 100,
 			endOnFirst: false,
+			bubble: true
 		},
 		transitionEnd = (function(){
 			var t, el = document.createElement('p'),
@@ -113,7 +114,10 @@
 			timer;
 
 		elem.on(ev, function(e, type){
-			if(
+			if(!opts.bubble && e.target !== elem[0]){
+				return;
+			}
+			else if(
 				opts.endOnFirst ||
 				(type && (e.type = type)) ||
 				detected.prop == 'all' ||
